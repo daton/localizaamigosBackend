@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/mensaje")
+@RequestMapping("/api")
 public class ControladorMensaje {
 
-@GetMapping("/")
+@GetMapping("/mensaje")
  public  Mensaje obtenerMensaje(){
  //Creamos un objeto de tipo mensaje
  Mensaje mensaje=new Mensaje();
