@@ -1,8 +1,8 @@
 package com.unitec.localizaamigos;
 
 public class Mensaje {
-    private String titulo;
-    private  String cuerpo;
+   private String titulo;
+   private String cuerpo;
 
     public Mensaje() {
     }

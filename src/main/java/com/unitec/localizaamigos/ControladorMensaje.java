@@ -6,19 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+//api es Aplication Programming Interface
 @RequestMapping("/api")
 public class ControladorMensaje {
 
-@GetMapping("/mensaje")
- public  Mensaje obtenerMensaje(){
- //Creamos un objeto de tipo mensaje
- Mensaje mensaje=new Mensaje();
- mensaje.setTitulo("Para mis alumnos de ANDROID");
- mensaje.setCuerpo("Este es un servicio REST muy basico pero funciona ");
-
- return mensaje;
-
-
-}
-
+    //La anotacion GetMapping indica que vamos a hacer una operacion GET
+   @GetMapping("/mensaje")
+    public Mensaje obtenerMensaje(){
+       //Esto de aqui lo ahce un objeto modelo, por ahora lo va a hacer el controlador
+       Mensaje mensa=new Mensaje();
+       mensa.setTitulo("MI primer mensaje");
+       mensa.setCuerpo(" Un mensajito para lo alumnos de aps. moviles");
+       //regresamos al ciente (que vive fuera del servidor) el objeto de tipo mensaje
+       return  mensa;
+   }
 }
