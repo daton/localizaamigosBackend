@@ -16,7 +16,7 @@ public class ControladorMensaje {
        //Esto de aqui lo ahce un objeto modelo, por ahora lo va a hacer el controlador
        Mensaje mensa=new Mensaje();
        mensa.setTitulo("MI primer mensaje");
-       mensa.setCuerpo(" Un mensajito para lo alumnos de aps. moviles");
+       mensa.setCuerpo("Ya casi termina la clase y tengo ganas de papas con salsa y limonsito");
        //regresamos al ciente (que vive fuera del servidor) el objeto de tipo mensaje
        return  mensa;
    }
