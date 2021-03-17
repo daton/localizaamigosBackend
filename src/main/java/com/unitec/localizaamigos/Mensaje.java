@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 
 
 public class Mensaje {
+
     @MongoId
    private String id;
    private String titulo;
@@ -15,14 +16,7 @@ public class Mensaje {
         this.cuerpo = cuerpo;
     }
 
-    @Override
-    public String toString() {
-        return "Mensaje{" +
-                "id='" + id + '\'' +
-                ", titulo='" + titulo + '\'' +
-                ", cuerpo='" + cuerpo + '\'' +
-                '}';
-    }
+
 
     public Mensaje() {
     }

@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.*;
 //api es Aplication Programming Interface
 @RequestMapping("/api")
 public class ControladorMensaje {
-@Autowired MensajeRepository mensajeRepository;
+
+@Autowired
+MensajeRepository mensajeRepositorio;
+
     //La anotacion GetMapping indica que vamos a hacer una operacion GET
    @GetMapping("/mensaje")
     public Mensaje obtenerMensaje(){
@@ -22,12 +25,19 @@ public class ControladorMensaje {
    }
 
 @PostMapping("/mensaje")
-    public Estatus guardar(@RequestBody String json)throws Exception{
-    ObjectMapper maper=new ObjectMapper();
-    Mensaje mensaje=maper.readValue(json, Mensaje.class);
+public   Estatus guardar(@RequestBody String json)throws Exception{
+       //Recibimos por medio del RequestBody el objeto json proveniente de Android
+    ObjectMapper mapper =new ObjectMapper();
+    //Ahora vamos a convertir el objeto json que viene de android a objeto Java usando la clase ObjectMapper
+     Mensaje mensa   =   mapper.readValue(json, Mensaje.class);
+     //El objeto mensa es el objeto ya traducido de json a java, ahora lo guardamos por medio del repositorio
+    mensajeRepositorio.save(mensa);
+    //CReamos la notificacion donde se informa a android el estatus del servicio REST (guardar)
+    Estatus estatus=new Estatus("Mensaje guardado bieeeeenn", true);
+    //Lo retornamos
+    return  estatus;
 
- Estatus estatus=new Estatus("Guardadoooo", true);
- mensajeRepository.save(mensaje);
- return  estatus;
-   }
+}
+
+
 }

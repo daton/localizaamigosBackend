@@ -1,9 +1,8 @@
 package com.unitec.localizaamigos;
 
-
 public class Estatus {
-    String mensaje;
-    boolean exitoso;
+    private String mensaje;
+    private  boolean exitoso;
 
     public Estatus(String mensaje, boolean exitoso) {
         this.mensaje = mensaje;
