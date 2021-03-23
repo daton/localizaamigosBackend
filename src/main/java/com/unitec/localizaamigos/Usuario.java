@@ -1,7 +1,9 @@
 package com.unitec.localizaamigos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Usuario {
 
     @MongoId
@@ -9,6 +11,15 @@ public class Usuario {
     private String nickname;
     private String nombre;
 
+    private Localizacion localizacion;
+
+    public Localizacion getLocalizacion() {
+        return localizacion;
+    }
+
+    public void setLocalizacion(Localizacion localizacion) {
+        this.localizacion = localizacion;
+    }
 
     public Usuario() {
     }

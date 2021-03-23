@@ -38,4 +38,24 @@ public class ControladorUsuario {
         return  estatus;
 
     }
+
+    @PutMapping("/usuario")
+    public   Estatus actualizarUsuario(@RequestBody String json)throws Exception{
+        //Recibimos por medio del RequestBody el objeto json proveniente de Android
+        ObjectMapper mapper =new ObjectMapper();
+        //Ahora vamos a convertir el objeto json que viene de android a objeto Java usando la clase ObjectMapper
+        Usuario usua   =   mapper.readValue(json, Usuario.class);
+
+        //Lo buscamos
+        Usuario usuarioBuscado=usuarioRepositorio.findById(usua.getEmail()).get();
+        //Le asignamos la propiedad localizacion que llego
+        usuarioBuscado.setLocalizacion(usua.getLocalizacion());
+        //Lo guardamos nuevamente ya con la localizacion
+        usuarioRepositorio.save(usuarioBuscado);
+        //CReamos la notificacion donde se informa a android el estatus del servicio REST (guardar)
+        Estatus estatus=new Estatus("Tu usuario se SE ACTUALIZAO ", true);
+        //Lo retornamos
+        return  estatus;
+
+    }
 }
