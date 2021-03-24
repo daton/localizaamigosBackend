@@ -38,7 +38,8 @@ public class ControladorUsuario {
         return  estatus;
 
     }
-
+//Este es el metodo PUT para poder actualizar tu usuario (ya registro) para guardar la localizacion
+// en un rango de 1 a 5 segundos, es decir, cada 1 a 5 segundos se actualiza en el back tu localizacion
     @PutMapping("/usuario")
     public   Estatus actualizarUsuario(@RequestBody String json)throws Exception{
         //Recibimos por medio del RequestBody el objeto json proveniente de Android
@@ -53,7 +54,7 @@ public class ControladorUsuario {
         //Lo guardamos nuevamente ya con la localizacion
         usuarioRepositorio.save(usuarioBuscado);
         //CReamos la notificacion donde se informa a android el estatus del servicio REST (guardar)
-        Estatus estatus=new Estatus("Tu usuario se SE ACTUALIZAO ", true);
+        Estatus estatus=new Estatus("Ya estas geolocaliado!!! JAJAJAJAJA ", true);
         //Lo retornamos
         return  estatus;
 
