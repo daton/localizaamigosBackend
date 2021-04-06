@@ -59,4 +59,13 @@ public class ControladorUsuario {
         return  estatus;
 
     }
+
+    @DeleteMapping("/usuario/{id}")
+    public Estatus borrarUsuario(@PathVariable String id){
+        //Borramos
+         usuarioRepositorio.deleteById(id);
+         Estatus e=new Estatus("Usuario borrado con exito",true);
+        return e;
+
+    }
 }
