@@ -54,7 +54,7 @@ public class ControladorUsuario {
         //Lo guardamos nuevamente ya con la localizacion
         usuarioRepositorio.save(usuarioBuscado);
         //CReamos la notificacion donde se informa a android el estatus del servicio REST (guardar)
-        Estatus estatus=new Estatus("Ya estas geolocaliado!!! JAJAJAJAJA ", true);
+        Estatus estatus=new Estatus("Ya estas geolocaliazdo!!! JAJAJAJAJA ", true);
         //Lo retornamos
         return  estatus;
 
