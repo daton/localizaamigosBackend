@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -67,5 +68,17 @@ public class ControladorUsuario {
          Estatus e=new Estatus("Usuario borrado con exito",true);
         return e;
 
+    }
+
+    //Solamente devuelve los registros que contienen
+    @GetMapping("/usuario/localizacion")
+    public List<Usuario> obetenerConLOcalizacion(){
+
+        List<Usuario> usuarios=usuarioRepositorio.findAll();
+        List<Usuario> usuariosLoca=new ArrayList<Usuario>();
+        for (Usuario u:usuarios) {
+          if(u.getLocalizacion()!=null)usuariosLoca.add(u);
+        };
+        return usuariosLoca;
     }
 }
