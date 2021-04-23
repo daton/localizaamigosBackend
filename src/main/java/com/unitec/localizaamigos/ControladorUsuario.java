@@ -70,6 +70,12 @@ public class ControladorUsuario {
 
     }
 
+    @GetMapping("/usuario/{id}")
+    public Usuario buscarPorId(@PathVariable String id){
+        Usuario usuario=usuarioRepositorio.findById(id).get();
+        return usuario;
+    }
+
     //Solamente devuelve los registros que contienen
     @GetMapping("/usuario/localizacion")
     public List<Usuario> obetenerConLOcalizacion(){
